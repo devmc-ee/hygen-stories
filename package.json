@@ -1,0 +1,27 @@
+{
+  "name": "hygen-stories",
+  "version": "1.0.0",
+  "description": "Storybook stories generator for existing components",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node generator.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmc-ee/hygen-stories.git"
+  },
+  "keywords": [
+    "hygen",
+    "storybook"
+  ],
+  "author": "Aleksei Milishenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devmc-ee/hygen-stories/issues"
+  },
+  "homepage": "https://github.com/devmc-ee/hygen-stories#readme",
+  "dependencies": {
+    "hygen": "^6.2.11"
+  }
+}
