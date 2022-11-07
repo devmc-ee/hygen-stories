@@ -4,8 +4,7 @@
   "description": "Storybook stories generator for existing components",
   "main": "index.js",
   "scripts": {
-    "generate": "node generator.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate": "node generator.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,13 @@
   },
   "homepage": "https://github.com/devmc-ee/hygen-stories#readme",
   "dependencies": {
+    "@devmcee/folder-content-map": "^1.0.4",
     "hygen": "^6.2.11"
+  },
+  "files": [
+    "_templates"
+  ],
+  "bin": {
+    "hygen-stories": "./generator.js"
   }
 }
