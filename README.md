@@ -18,8 +18,6 @@ Options:
       --version  Show version number                                   [boolean]
   -d, --dir      directory name, relative path, default is current (./)
 
-Examples:
-  generate.js --dir src/components 
 ```
 
 ### TODO:
