@@ -1,6 +1,6 @@
 {
   "name": "@devmcee/hygen-stories",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Storybook stories generator for existing components",
   "main": "index.js",
   "scripts": {
