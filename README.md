@@ -6,47 +6,10 @@ It recursivly scans the given folder. If it contains .tsx file and no a .stories
 >component-name.tsx  => ComponentName.tsx
 
 
-## Install
-
-```
-npm i @devmcee/hygen-stories -D
-```
-
-Usage example:
-```javascript
-const { folderStructureMap } = require('@devmcee/folder-content-map');
-
-const structure = await folderStructureMap('src/components', ['.tsx', '.scss']);
-
-console.log(structure)
-
-```
-
-Sample data output:
-```
-[
-  {
-    type: 'directory',
-    parent: './src',
-    path: '/home/devmcee/dev/folder-content-map/src/components',
-    name: 'components',
-    innerItems: [
-      {
-        type: 'file',
-        parent: '/home/devmcee/dev/folder-content-map/src/components',
-        itemPath: '/home/devmcee/dev/folder-content-map/src/components/index.js',
-        name: 'index.js',
-        innerItems: []
-      }
-    ]
-  }
-]
-```
-
-There is an executable script that can be called with npx:
+## Example usage:
 
 ```bash
-npx folder-content-map --dir src 
+npx @devmcee/hygen-stories --dir src 
 ```
 
 ```bash
