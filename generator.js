@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-const path = require('path');
-
 const { generateStories } = require('./index');
 const { folderStructure } = require('@devmcee/folder-content-map');
 
@@ -18,7 +16,7 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
 const { dir, ext } = argv;
 
 (async function () {
-  const componentsFolder = path.resolve(__dirname, dir || 'src/components');
+  const componentsFolder = require.resolve(dir || 'src/components');
   console.log(componentsFolder, componentsFolder || './',
   // TODO: implement config for diffent extnesions
   ext && typeof ext === 'string' ? ext.split(',') : ['.tsx','.scss']);
