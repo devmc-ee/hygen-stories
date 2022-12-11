@@ -7,7 +7,7 @@ import './<%= styles %>';
 <% } %>
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import {<%= name %>} from './<%= fileName %>';
+import { <%= name % >} from './<%= fileName %>';
 
 export default {
     title: '<%= name %>',
