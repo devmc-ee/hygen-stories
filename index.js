@@ -46,28 +46,28 @@ async function generateStories(items) {
     return false;
   }
 
-  const componentFile = items.find((item) => item.name.endsWith('.tsx'));
-  
-  if (componentFile) {
-    const { name, parent } = componentFile;
+  items.forEach(async (item) => {
+    if (item.name.endsWith('.tsx')) {
+      const { name, parent } = item;
 
-    const componentName = getComponentName(name, '.tsx');
-    const fileBaseName = getFileBaseName(name, '.tsx');
+      const componentName = getComponentName(name, '.tsx');
+      const fileBaseName = getFileBaseName(name, '.tsx');
 
-    const stylesFile = items.find((item) => item.name.endsWith('.scss'));
+      const stylesFile = items.find((item) => item.name.endsWith('.scss'));
 
-    const stylesNameOption = stylesFile ? `${stylesFile.name}` : 'null';
+      const stylesNameOption = stylesFile ? `${stylesFile.name}` : 'null';
 
-    try {
-      const command = `npx hygen story new --name ${componentName} --path ${parent} --fileName ${fileBaseName} --styles ${stylesNameOption}`;
-      
-      await exec(command);
-    } catch (err) {
-      console.log(err);
+      try {
+        const command = `npx hygen story new --name ${componentName} --path ${parent} --fileName ${fileBaseName} --styles ${stylesNameOption}`;
+
+        await exec(command);
+      } catch (err) {
+        console.log(err);
+      }
+
+      console.log(componentName);
     }
-
-    console.log(componentName);
-  }
+  });
 
   const directories = items.filter((item) => item.type === ITEM_TYPE.directory);
 

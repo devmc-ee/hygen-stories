@@ -1,7 +1,18 @@
 #!/usr/bin/env node
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
+
+const sourceDir = path.resolve(__dirname, '_templates/story/new/');
+const targetDir = path.resolve(__dirname, '../../../', '_templates/story/new/');
+
+const templateFile =  path.resolve(sourceDir, 'story.ejs.t');
+const targetFile = path.resolve(__dirname, '../../../', '_templates/story/new/story.ejs.t');
+
+fs.mkdirSync(targetDir,{recursive: true}, (error)=>console.log(error||'created _template folder'));
+fs.copyFileSync(templateFile, targetFile );
+
 const { generateStories } = require('./index');
 const { folderStructure } = require('@devmcee/folder-content-map');
 
@@ -18,9 +29,7 @@ const { dir, ext } = argv;
 
 (async function () {
   const componentsFolder = path.resolve(__dirname, '../../../', dir || 'src/components');
-  console.log(componentsFolder, componentsFolder || './',
-  // TODO: implement config for diffent extnesions
-  ext && typeof ext === 'string' ? ext.split(',') : ['.tsx','.scss']);
+
   const filesPathMap = await folderStructure(
     componentsFolder || './',
     // TODO: implement config for diffent extnesions
