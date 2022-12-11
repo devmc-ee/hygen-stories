@@ -7,16 +7,16 @@ import './<%= styles %>';
 <% } %>
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import <%= name %> from './<%= fileName %>';
+import {<%= name %>} from './<%= fileName %>';
 
 export default {
     title: '<%= name %>',
     component: <%= name %>,
 } as ComponentMeta<typeof <%= name %>>;
 
-const Template: ComponentStory<typeof  <%= name %>> = (args) => (
-  <<%= name %> {...args} />
-);
+const Template: ComponentStory<typeof  <%= name %>> = (args) => {
+  return <<%= name %> {...args} />
+};
 
 export const Default = Template.bind({});
 

@@ -10,8 +10,13 @@ const targetDir = path.resolve(__dirname, '../../../', '_templates/story/new/');
 const templateFile =  path.resolve(sourceDir, 'story.ejs.t');
 const targetFile = path.resolve(__dirname, '../../../', '_templates/story/new/story.ejs.t');
 
-fs.mkdirSync(targetDir,{recursive: true}, (error)=>console.log(error||'created _template folder'));
-fs.copyFileSync(templateFile, targetFile );
+try {
+  fs.accessSync(targetFile, fs.constants.R_OK);
+  console.log('Template exists');
+}catch (e) {
+  fs.mkdirSync(targetDir,{recursive: true}, (error)=>console.log(error||'created _template folder'));
+  fs.copyFileSync(templateFile, targetFile, fs.constants.COPYFILE_EXCL);
+}
 
 const { generateStories } = require('./index');
 const { folderStructure } = require('@devmcee/folder-content-map');
